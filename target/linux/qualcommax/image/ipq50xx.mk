@@ -334,12 +334,11 @@ define Device/mercusys_mr80x-v2
 endef
 TARGET_DEVICES += mercusys_mr80x-v2
 
-define Device/tplink_archer-ax55-v1
+define Device/tplink_archer-ax55-common
 	$(call Device/FitImageLzma)
 	$(call Device/UbiFit)
 	DEVICE_VENDOR := TP-Link
 	DEVICE_MODEL := Archer AX55
-	DEVICE_VARIANT := v1
 	DEVICE_DTS_CONFIG := config@mp03.3
 	SOC := ipq5018
 	BLOCKSIZE := 128k
@@ -347,7 +346,6 @@ define Device/tplink_archer-ax55-v1
 	IMAGE_SIZE := 43008k
 	NAND_SIZE := 128m
 	DEVICE_PACKAGES := ath11k-firmware-ipq5018-qcn6122 \
-		ipq-wifi-tplink_archer-ax55-v1 \
 		kmod-dsa-rtl8365mb \
 		kmod-usb-ledtrig-usbport
 ifneq ($(CONFIG_TARGET_ROOTFS_INITRAMFS),)
@@ -357,7 +355,20 @@ ifeq ($(IB),)
 endif
 endif
 endef
+
+define Device/tplink_archer-ax55-v1
+	$(call Device/tplink_archer-ax55-common)
+	DEVICE_VARIANT := v1
+	DEVICE_PACKAGES += ipq-wifi-tplink_archer-ax55-v1
+endef
 TARGET_DEVICES += tplink_archer-ax55-v1
+
+define Device/tplink_archer-ax55-v4
+	$(call Device/tplink_archer-ax55-common)
+	DEVICE_VARIANT := v4
+	DEVICE_PACKAGES += ipq-wifi-tplink_archer-ax55-v4
+endef
+TARGET_DEVICES += tplink_archer-ax55-v4
 
 define Device/tplink_eap650-outdoor-v1
 	$(call Device/FitImage)

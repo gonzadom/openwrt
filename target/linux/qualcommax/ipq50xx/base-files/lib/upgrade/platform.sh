@@ -287,6 +287,7 @@ platform_do_upgrade() {
 		nand_do_upgrade_success
 		;;
 	tplink,archer-ax55-v1|\
+	tplink,archer-ax55-v4|\
 	tplink,eap650-outdoor-v1|\
 	tplink,re700x)
 		# Dual boot: install into the inactive rootfs/rootfs_1 slot,

@@ -1,0 +1,26 @@
+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
+
+/*
+ * TP-Link Archer AX55 v4.0
+ *
+ * Same IPQ5018 board as the v1: the stock v4 device tree (fw 1.1.3,
+ * config mp03.3) has identical GPIOs for buttons, LEDs, USB VBUS and the
+ * switch reset (GPIO33), the same MDIO address (29) and the same NAND
+ * layout. The difference is the switch silicon: v4 ships an RTL8367S-VB
+ * (chip id 0x6642, RTL8367D family), and the Wi-Fi BDFs are v4-specific.
+ */
+
+#include "ipq5018-archer-ax55-v1.dts"
+
+/ {
+	model = "TP-Link Archer AX55 v4";
+	compatible = "tplink,archer-ax55-v4", "qcom,ipq5018";
+};
+
+&wifi {
+	qcom,calibration-variant = "TP-Link-Archer-AX55-v4";
+};
+
+&wifi1 {
+	qcom,calibration-variant = "TP-Link-Archer-AX55-v4";
+};

@@ -43,7 +43,8 @@ mercusys,mr80x-v2)
 	ucidef_set_led_netdev "lan2" "LAN2" "green:lan-2" "lan2" "tx rx link"
 	ucidef_set_led_netdev "lan3" "LAN3" "green:lan-3" "lan3" "tx rx link"
 	;;
-tplink,archer-ax55-v1)
+tplink,archer-ax55-v1|\
+tplink,archer-ax55-v4)
 	ucidef_set_led_netdev "lan" "LAN" "green:lan" "br-lan"
 	ucidef_set_led_netdev "wan" "WAN" "green:wan-online" "wan"
 	ucidef_set_led_netdev "wlan2g" "WLAN2G" "green:wlan-2ghz" "phy0-ap0" "link tx rx"
